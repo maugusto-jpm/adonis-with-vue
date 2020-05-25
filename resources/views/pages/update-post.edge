@@ -1,0 +1,51 @@
+@layout('layouts/main')
+
+@section('extra-style')
+  <link rel="stylesheet" href="/styles/forms.css" />
+@endsection
+
+@section('title')
+  AdonisJs Blog - Editar postagem
+@endsection
+
+@section('content')
+  <div class="block-container form-container form-create-post">
+    <h1>Editar postagem</h1>
+
+    <form class="form" action="/posts/{{ post.id }}/update" method="POST">
+      {{ csrfField() }}
+
+      <div class="input-group">
+        <label>
+          Título
+          <input type="text" name="title" value="{{ post.title }}">
+        </label>
+
+        @if(!!flashMessages.get('errors.title'))
+          <span class="alert-spam alert-message">
+            @each(error in flashMessages.get('errors.title'))
+              <p>{{ error }}</p>
+            @endeach
+          </span>
+        @endif
+      </div>
+
+      <div class="input-group">
+        <label>
+          Texto da postagem
+          <textarea rows="5" name="content">{{ post.content }}</textarea>
+        </label>
+
+        @if(!!flashMessages.get('errors.content'))
+          <span class="alert-spam alert-message">
+            @each(error in flashMessages.get('errors.content'))
+              <p>{{ error }}</p>
+            @endeach
+          </span>
+        @endif
+      </div>
+
+      <button type="submit" class="form-submit">Salvar</button>
+    </form>
+  </div>
+@endsection

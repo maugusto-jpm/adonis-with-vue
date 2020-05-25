@@ -1,0 +1,43 @@
+{
+  "name": "adonis-ts-blog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node ace build",
+    "start": "node ace serve --watch",
+    "db:migrate": "node ace migration:run",
+    "test": "echo Jest not configured yet",
+    "lint": "eslint './**/*[.ts|.js]'",
+    "lint:fix": "eslint --fix './**/*[.ts|.js]'"
+  },
+  "dependencies": {
+    "@adonisjs/ace": "^6.0.0",
+    "@adonisjs/auth": "^4.1.4",
+    "@adonisjs/core": "^5.0.0-preview-rc",
+    "@adonisjs/fold": "^6.0.0",
+    "@adonisjs/lucid": "^8.1.0",
+    "@adonisjs/session": "^3.0.0",
+    "@adonisjs/shield": "^3.0.3",
+    "@adonisjs/view": "^2.0.0",
+    "proxy-addr": "^2.0.6",
+    "reflect-metadata": "^0.1.13",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {
+    "@adonisjs/assembler": "^2.0.0",
+    "@types/faker": "^4.1.12",
+    "@typescript-eslint/eslint-plugin": "2.25.0",
+    "@typescript-eslint/parser": "2.25.0",
+    "adonis-preset-ts": "^1.0.4",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-adonis": "^1.0.10",
+    "faker": "^4.1.0",
+    "pino-pretty": "^4.0.0",
+    "prettier": "^2.0.5",
+    "sqlite3": "^4.2.0",
+    "typescript": "^3.9.2",
+    "youch": "^2.0.10",
+    "youch-terminal": "^1.0.0"
+  }
+}

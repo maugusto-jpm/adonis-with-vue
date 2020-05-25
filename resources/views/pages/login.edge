@@ -1,0 +1,60 @@
+@layout('layouts/main')
+
+@section('extra-style')
+  <link rel="stylesheet" href="/styles/forms.css" />
+@endsection
+
+@section('title')
+  AdonisJs Blog - Login
+@endsection
+
+@section('content')
+  <div class="block-container form-container">
+    <h1>Fazer login</h1>
+
+    <form class="form" action="{{ '/users/login' + (request.parsedUrl.search || '') }}" method="POST">
+      {{ csrfField() }}
+
+      <div class="input-group">
+        <label>
+          E-mail
+          <input type="email" name="email">
+        </label>
+
+        @if(!!flashMessages.get('errors.email'))
+          <span class="alert-spam alert-message">
+            @each(error in flashMessages.get('errors.email'))
+              <p>{{ error }}</p>
+            @endeach
+          </span>
+        @endif
+      </div>
+
+      <div class="input-group">
+        <label>
+          Senha
+          <input type="password" name="password">
+        </label>
+
+        @if(!!flashMessages.get('errors.password'))
+          <span class="alert-spam alert-message">
+            @each(error in flashMessages.get('errors.password'))
+              <p>{{ error }}</p>
+            @endeach
+          </span>
+        @endif
+      </div>
+
+      <label class="label-checkbox">
+        <input
+          type="checkbox"
+          class="form-checkbox"
+          name="remember_me"
+          value="1"
+          checked> Lembrar-se de mim
+      </label>
+
+      <button type="submit" class="form-submit">Entrar</button>
+    </form>
+  </div>
+@endsection
