@@ -26,17 +26,14 @@
       "scripthost"
     ]
   },
-  "exclude": [
-    "node_modules",
-    ".env",
-  ],
   "include": [
-    "vue.config.js",
-    "webpack.config.js",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
+  ],
+  "exclude": [
+    ".env"
   ]
 }
