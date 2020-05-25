@@ -20,30 +20,21 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ response }) => {
-  response.redirect('/postagens')
-})
-
 // Those routes should be only accessible
 // when you are logged in
-Route.get('/postagens', 'PostsController.index')
 Route.group(() => {
-  Route.on('/nova-postagem').render('pages/create-post')
-  Route.post('/posts/create', 'PostsController.create')
-  Route.get('/posts/:id/update', 'PostsController.renderUpdate')
-  Route.post('/posts/:id/update', 'PostsController.update')
-  Route.get('/posts/:id/delete', 'PostsController.delete')
-  Route.get('/sair', 'SessionController.logout')
-}).middleware('auth')
+  // Routes goes here
+})
+  .middleware('auth')
+  .prefix('api')
 
 // Those routes should be only accessible
 // when you are not logged in
 Route.group(() => {
-  Route.on('/entrar').render('pages/login')
-  Route.on('/cadastrar-se').render('pages/signup')
-  Route.post('/users/login', 'SessionController.login')
-  Route.post('/users/store', 'UsersController.store')
-}).middleware('guest')
+  // Routes goes here
+})
+  .middleware('guest')
+  .prefix('api')
 
-// Only to populate Database in development
-Route.get('/users/populate', 'PopulateController.index')
+// Redirects other routes to frontend
+Route.any('*', async ({ view }) => view.render('frontend'))

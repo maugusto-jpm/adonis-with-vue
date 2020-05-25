@@ -1,8 +1,6 @@
-import { BaseModel, column, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-
-import Post from './Post'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true, serializeAs: null })
@@ -15,7 +13,11 @@ export default class User extends BaseModel {
   public email: string
 
   @column({ serializeAs: null })
-  public password: string
+  private _password: string
+
+  public get password(): string {
+    return this._password
+  }
 
   @column({ columnName: 'remember_me_token', serializeAs: null })
   public rememberMeToken: string
@@ -26,14 +28,11 @@ export default class User extends BaseModel {
   @column.dateTime({ autoUpdate: true, serializeAs: null })
   public updatedAt: DateTime
 
-  @hasMany(() => Post)
-  public posts: HasMany<typeof Post>
-
   public async setPassword(password: string): Promise<void> {
-    this.password = await Hash.make(password)
+    this._password = await Hash.make(password)
   }
 
   public async verifyPassword(password: string): Promise<boolean> {
-    return Hash.verify(this.password, password);
+    return Hash.verify(this._password, password);
   }
 }
