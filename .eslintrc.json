@@ -38,6 +38,8 @@
     "/.DS_STORE",
     "/coverage",
     "/.nyc_output",
-    "/public"
+    "/public",
+    "resources/views",
+    "ace"
   ]
 }

@@ -1,5 +1,10 @@
 # Dependencies
 /node_modules
+/frontend/node_modules
+
+# Auto generated files
+/resources/views/frontend.edge
+/public/frontend
 
 # Compiled output
 /build
@@ -20,6 +25,7 @@ lerna-debug.log*
 
 # Git conflit files
 *.orig
+*~
 
 # Test output
 /coverage

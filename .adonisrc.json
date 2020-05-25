@@ -25,9 +25,21 @@
     "@adonisjs/shield"
   ],
   "metaFiles": [
-    ".env",
-    ".adonisrc.json",
-    "resources/views/**/*.edge",
-    "public/**"
+    {
+      "pattern": ".adonisrc.json",
+      "reloadServer": true
+    },
+    {
+      "pattern": ".env",
+      "reloadServer": true
+    },
+    {
+      "pattern": "resources/views/**/*.edge",
+      "reloadServer": true
+    },
+    {
+      "pattern": "public/**",
+      "reloadServer": false
+    }
   ]
 }

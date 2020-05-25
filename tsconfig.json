@@ -6,7 +6,8 @@
     "node_modules",
     "build",
     ".env",
-    "tmp"
+    "tmp",
+    "frontend"
   ],
   "extends": "./node_modules/adonis-preset-ts/tsconfig",
   "compilerOptions": {
