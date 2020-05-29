@@ -49,12 +49,18 @@ export const csp: ShieldConfig['csp'] = {
     ],
     fontSrc: [
       "'self'",
+      'fonts.gstatic.com',
+      'kit-free.fontawesome.com',
     ],
     scriptSrc: [
       "'self'",
+      "kit.fontawesome.com"
     ],
     styleSrc: [
       "'self'",
+      'kit.fontawesome.com',
+      'kit-free.fontawesome.com',
+      'fonts.googleapis.com',
     ],
     imgSrc: [
       "'self'",
