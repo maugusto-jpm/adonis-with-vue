@@ -20,21 +20,27 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-// Those routes should be only accessible
-// when you are logged in
 Route.group(() => {
-  // Routes goes here
-})
-  .middleware('auth')
-  .prefix('api')
 
-// Those routes should be only accessible
-// when you are not logged in
-Route.group(() => {
-  // Routes goes here
-})
-  .middleware('guest')
-  .prefix('api')
+  // Those routes should be only accessible
+  // when users are logged in
+  Route.group(() => {
+    Route.get('/user', 'UsersController.index')
+    Route.get('/logout', 'SessionController.logout')
+
+  }).middleware('auth')
+
+
+  // Those routes should be only accessible
+  // when users are not logged in
+  Route.group(() => {
+    Route.post('/login', 'SessionController.login')
+    Route.post('/signup', 'UsersController.signup')
+
+  }).middleware('guest')
+
+}).prefix('api')
+
 
 // Redirects other routes to frontend
 Route.any('*', async ({ view }) => view.render('frontend'))

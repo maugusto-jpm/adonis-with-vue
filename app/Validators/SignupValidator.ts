@@ -24,10 +24,6 @@ export default class SignupValidator {
    *    ```
    */
   public schema = schema.create({
-    name: schema.string({ trim: true }, [
-      rules.minLength(5),
-      rules.maxLength(200),
-    ]),
     email: schema.string({ trim: true }, [
       rules.email(),
       rules.unique({ table: 'users', column: 'email' }),
@@ -60,10 +56,6 @@ export default class SignupValidator {
    * }
   */
   public messages = {
-    'name.required': 'O nome é necessário',
-    'name.minLength': 'O nome deve ter no mínimo 5 caracteres',
-    'name.maxLength': 'O nome deve ter no máximo 200 caracteres',
-
     'email.required': 'O email é necessário',
     'email.email': 'O e-mail informado não é válido',
     'email.unique': 'Já existe outro cadastro com este mesmo e-mail',

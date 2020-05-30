@@ -1,19 +1,19 @@
 <template>
-  <div class="home">
-    <div class="home-panel">
-      <h2>AdonisJs with Vue.js</h2>
+  <div class="dashboard">
+    <div class="dashboard-panel">
+      <h2>Dashboard</h2>
     </div>
   </div>
 </template>
 
 <style lang="scss">
-.home {
+.dashboard {
   display: flex;
   align-items: baseline;
   height: 100%;
   width: 100%;
 
-  .home-panel {
+  .dashboard-panel {
     padding: 70px 0;
     margin: auto;
     width: 400px;

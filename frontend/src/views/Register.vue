@@ -1,7 +1,7 @@
 <template>
   <div class="login-root">
     <div class="login-box">
-      <h2>Login</h2>
+      <h2>Register</h2>
 
       <div class="input-box">
         <input type="text" v-model="user.email" required />
@@ -11,6 +11,11 @@
       <div class="input-box">
         <input type="password" v-model="user.password" required />
         <label>Password</label>
+      </div>
+
+      <div class="input-box">
+        <input type="password" v-model="user.password_confirmation" required />
+        <label>Confirmation</label>
       </div>
 
       <input type="submit" class="submit" value="Login" @click="submitForm"/>
@@ -25,12 +30,13 @@ export default {
       user: {
         email: '',
         password: '',
+        password_confirmation: '',
       },
     };
   },
   methods: {
     submitForm() {
-      this.$axios.post('login').then(response => {
+      this.$axios.post('signup', this.user).then(response => {
         this.$router.push({ name: 'Dashboard' });
       })
     },

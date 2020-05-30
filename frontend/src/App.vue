@@ -6,28 +6,22 @@
       <i class="fas fa-times" id="close-menu"></i>
     </label>
     <nav class="sidebar">
-      <header>AdonisJs Blog</header>
+      <header>AdonisJs with Vue.js</header>
       <ul>
         <li>
-          <a href="#"><i class="fas fa-qrcode"></i>Dashboard</a>
+          <router-link :to="{ name: 'Home' }"><i class="fas fa-qrcode"></i>Home</router-link>
         </li>
         <li>
-          <a href="#"><i class="fas fa-link"></i>Shortcuts</a>
+          <router-link :to="{ name: 'Dashboard' }"><i class="fas fa-sliders-h"></i>Dashboard</router-link>
         </li>
         <li>
-          <a href="#"><i class="fas fa-stream"></i>Overview</a>
+          <router-link :to="{ name: 'Login' }"><i class="fas fa-link"></i>Login</router-link>
         </li>
         <li>
-          <a href="#"><i class="fas fa-calendar-week"></i>Events</a>
+          <router-link to="/api/logout"><i class="fas fa-door-open"></i>Logout</router-link>
         </li>
         <li>
-          <a href="#"><i class="far fa-question-circle"></i>About</a>
-        </li>
-        <li>
-          <a href="#"><i class="fas fa-sliders-h"></i>Services</a>
-        </li>
-        <li>
-          <a href="#"><i class="far fa-envelope"></i>Contact</a>
+          <router-link :to="{ name: 'Register' }"><i class="fas fa-calendar-week"></i>Sign-in</router-link>
         </li>
       </ul>
     </nav>
