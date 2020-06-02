@@ -14,7 +14,7 @@ const authRouteGuard: NavigationGuard = async (_to, _from, next) => {
     return next();
   }
 
-  next({ name: 'Login' });
+  return next({ name: 'Login' });
 };
 
 const guestRouteGuard: NavigationGuard = async (_to, _from, next) => {
@@ -22,7 +22,7 @@ const guestRouteGuard: NavigationGuard = async (_to, _from, next) => {
     return next({ name: 'Dashboard' });
   }
 
-  next();
+  return next();
 };
 
 const routes: Array<RouteConfig> = [

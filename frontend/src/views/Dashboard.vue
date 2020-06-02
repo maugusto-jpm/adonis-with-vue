@@ -1,10 +1,19 @@
 <template>
   <div class="dashboard">
     <div class="dashboard-panel">
-      <h2>Dashboard</h2>
+      <h2>Welcome, {{ user.email }}</h2>
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+import { mapState } from 'vuex';
+
+export default Vue.extend({
+  computed: mapState(['user']),
+});
+</script>
 
 <style lang="scss">
 .dashboard {

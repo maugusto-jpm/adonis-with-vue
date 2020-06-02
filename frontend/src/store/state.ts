@@ -1,10 +1,10 @@
 export interface User {
-  name: string | null;
+  email: string | null;
 }
 
-export interface StateData {
+export type StateData = {
   user: null | User;
-}
+};
 
 export default {
   user: null,

@@ -11,8 +11,8 @@ Vue.prototype.$axios = HttpClient;
 new Vue({
   router,
   store,
-  async beforeCreate() {
-    await this.$store.dispatch('loadUser');
+  beforeCreate() {
+    this.$store.dispatch('loadUser');
   },
   render: h => h(App),
 }).$mount('#app');

@@ -1,40 +1,37 @@
 <template>
-  <div>
-    <loading-page v-if="!user" />
-    <div v-else id="app">
-      <input type="checkbox" id="menu-checkbox" />
-      <label for="menu-checkbox">
-        <i class="fas fa-bars" id="open-menu"></i>
-        <i class="fas fa-times" id="close-menu"></i>
-      </label>
-      <nav class="sidebar">
-        <header>AdonisJs with Vue.js</header>
-        <ul>
-          <li>
-            <router-link :to="{ name: 'Home' }"> <i class="fas fa-qrcode"></i>Home </router-link>
-          </li>
-          <li>
-            <router-link :to="{ name: 'Dashboard' }">
-              <i class="fas fa-sliders-h"></i>Dashboard
-            </router-link>
-          </li>
-          <li>
-            <router-link :to="{ name: 'Login' }"> <i class="fas fa-link"></i>Login </router-link>
-          </li>
-          <li>
-            <router-link to="/api/logout"> <i class="fas fa-door-open"></i>Logout </router-link>
-          </li>
-          <li>
-            <router-link :to="{ name: 'Register' }">
-              <i class="fas fa-calendar-week"></i>Sign-in
-            </router-link>
-          </li>
-        </ul>
-      </nav>
-      <section class="router-content">
-        <router-view />
-      </section>
-    </div>
+  <div id="app">
+    <input type="checkbox" id="menu-checkbox" />
+    <label for="menu-checkbox">
+      <i class="fas fa-bars" id="open-menu"></i>
+      <i class="fas fa-times" id="close-menu"></i>
+    </label>
+    <nav class="sidebar">
+      <header>AdonisJs with Vue.js</header>
+      <ul>
+        <li>
+          <router-link :to="{ name: 'Home' }"> <i class="fas fa-qrcode"></i>Home </router-link>
+        </li>
+        <li v-if="user">
+          <router-link :to="{ name: 'Dashboard' }">
+            <i class="fas fa-sliders-h"></i>Dashboard
+          </router-link>
+        </li>
+        <li v-if="!user">
+          <router-link :to="{ name: 'Login' }"> <i class="fas fa-link"></i>Login </router-link>
+        </li>
+        <li v-if="user">
+          <a href="/api/logout"> <i class="fas fa-door-open"></i>Logout </a>
+        </li>
+        <li v-if="!user">
+          <router-link :to="{ name: 'Register' }">
+            <i class="fas fa-calendar-week"></i>Sign-in
+          </router-link>
+        </li>
+      </ul>
+    </nav>
+    <section class="router-content">
+      <router-view />
+    </section>
   </div>
 </template>
 
@@ -42,12 +39,7 @@
 import Vue from 'vue';
 import { mapState } from 'vuex';
 
-import LoadingPage from '@/components/LoadingPage.vue';
-
 export default Vue.extend({
-  components: {
-    LoadingPage,
-  },
   computed: mapState(['user']),
 });
 </script>
