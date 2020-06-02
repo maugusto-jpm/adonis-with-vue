@@ -1,22 +1,18 @@
 import Vue from 'vue';
-import { AxiosStatic } from 'axios';
 
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import httpClient from '@/middleware/httpClient';
+import HttpClient from '@/middleware/HttpClient';
 
 Vue.config.productionTip = false;
-Vue.prototype.$axios = httpClient;
-
-// declare module 'vue/types/vue' {
-//   interface Vue {
-//     $axios: AxiosStatic;
-//   }
-// }
+Vue.prototype.$axios = HttpClient;
 
 new Vue({
   router,
   store,
+  async beforeCreate() {
+    await this.$store.dispatch('loadUser');
+  },
   render: h => h(App),
 }).$mount('#app');

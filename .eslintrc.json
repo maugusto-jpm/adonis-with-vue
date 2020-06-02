@@ -29,6 +29,9 @@
     }],
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/class-name-casing": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "handle-callback-err": "off"
   },
   "ignorePatterns": [

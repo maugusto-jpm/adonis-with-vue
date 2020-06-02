@@ -18,7 +18,7 @@
         <label>Confirmation</label>
       </div>
 
-      <input type="submit" class="submit" value="Login" @click="submitForm"/>
+      <input type="submit" class="submit" value="Login" @click="submitForm" />
     </div>
   </div>
 </template>
@@ -36,9 +36,9 @@ export default {
   },
   methods: {
     submitForm() {
-      this.$axios.post('signup', this.user).then(response => {
+      this.$axios.post('signup', this.user).then(() => {
         this.$router.push({ name: 'Dashboard' });
-      })
+      });
     },
   },
 };

@@ -10,24 +10,16 @@ import Register from '../views/Register.vue';
 Vue.use(VueRouter);
 
 const authRouteGuard: NavigationGuard = async (_to, _from, next) => {
-  if (store.getters.user()) {
-    await store.dispatch('loadUser');
-  }
-
-  if (store.getters.isLoggedIn()) {
-    next();
+  if (store.getters.isLoggedIn) {
+    return next();
   }
 
   next({ name: 'Login' });
 };
 
 const guestRouteGuard: NavigationGuard = async (_to, _from, next) => {
-  if (store.getters.user()) {
-    await store.dispatch('loadUser');
-  }
-
-  if (store.getters.isLoggedIn()) {
-    next({ name: 'Dashboard' });
+  if (store.getters.isLoggedIn) {
+    return next({ name: 'Dashboard' });
   }
 
   next();

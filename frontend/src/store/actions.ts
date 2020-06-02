@@ -1,11 +1,13 @@
 import { ActionTree } from 'vuex';
 
 import { StateData, User } from './state';
+import { loadLoggedUser } from '@/services/UsersService';
 
 export default {
-  async loadUser({ commit }, payload: { user: User }): Promise<User> {
-    commit('setUser', payload.user);
-    return payload.user;
-  },
+  async loadUser({ commit }): Promise<User> {
+    const user = await loadLoggedUser();
+    commit('setUser', user);
 
+    return user;
+  },
 } as ActionTree<StateData, StateData>;

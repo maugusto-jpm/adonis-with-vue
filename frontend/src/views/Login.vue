@@ -13,7 +13,7 @@
         <label>Password</label>
       </div>
 
-      <input type="submit" class="submit" value="Login" @click="submitForm"/>
+      <input type="submit" class="submit" value="Login" @click="submitForm" />
     </div>
   </div>
 </template>
@@ -30,9 +30,12 @@ export default {
   },
   methods: {
     submitForm() {
-      this.$axios.post('login').then(response => {
-        this.$router.push({ name: 'Dashboard' });
-      })
+      this.$axios
+        .post('login', this.user)
+        .then(() => this.$store.dispatch('loadUser'))
+        .then(() => {
+          this.$router.push({ name: 'Dashboard' });
+        });
     },
   },
 };
@@ -97,16 +100,16 @@ export default {
       color: #03a9f4;
       font-size: 13px;
     }
-  }
 
-  .submit {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #03a9f4;
-    padding: 10px 20px;
-    border-radius: 5px;
+    .submit {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      background: #03a9f4;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
   }
 }
 </style>

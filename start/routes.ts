@@ -21,13 +21,12 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.group(() => {
+  Route.get('/user', 'UsersController.index')
 
   // Those routes should be only accessible
   // when users are logged in
   Route.group(() => {
-    Route.get('/user', 'UsersController.index')
     Route.get('/logout', 'SessionController.logout')
-
   }).middleware('auth')
 
 

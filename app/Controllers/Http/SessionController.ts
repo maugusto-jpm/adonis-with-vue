@@ -13,6 +13,6 @@ export default class SessionController {
   public async logout({ response, auth }: HttpContextContract): Promise<void> {
     await auth.logout()
 
-    response.status(200)
+    response.redirect('/')
   }
 }
