@@ -1,4 +1,7 @@
 {
+  "references": [
+    { "path": "./frontend" }
+  ],
   "include": [
     "**/*"
   ],
@@ -11,6 +14,9 @@
   ],
   "extends": "./node_modules/adonis-preset-ts/tsconfig",
   "compilerOptions": {
+    "lib": ["ES2019"],
+    "module": "commonjs",
+    "target": "ES2019",
     "outDir": "build",
     "rootDir": "./",
     "sourceMap": true,

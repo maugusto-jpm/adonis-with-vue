@@ -1,9 +1,5 @@
 import axios, { AxiosStatic } from 'axios';
 
-// axios.defaults.baseURL = process.env.BACKEND_BASE_URL
-// axios.defaults.xsrfCookieName = 'XSRF-TOKEN';
-// axios.defaults.xsrfHeaderName = 'X-XSRF-TOKEN';
-
 const HttpClient = axios.create({
   baseURL: process.env.BACKEND_BASE_URL,
   timeout: 5000,
@@ -14,11 +10,9 @@ const HttpClient = axios.create({
 HttpClient.interceptors.response.use(
   response => response.data,
   error => {
-    console.log('Erro http');
+    console.log('Erro http no axios');
     console.log(error.response);
     console.log(error.toJSON());
-
-    console.log(Object.keys(error));
 
     throw error;
   },

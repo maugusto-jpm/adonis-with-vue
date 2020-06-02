@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ES2019",
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
@@ -12,7 +12,8 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "webpack-env"
+      "webpack-env",
+      "jest"
     ],
     "paths": {
       "@/*": [
@@ -20,18 +21,24 @@
       ]
     },
     "lib": [
-      "esnext",
+      "ES2019",
       "dom",
       "dom.iterable",
       "scripthost"
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "./__tests__/**/*.spec.ts",
+    "./serve-hotReload.js",
+    "./webpack.config.js",
+    "./jest.config.js",
+    ".eslintrc.js",
+    "./babel.config.js",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.vue",
+    "./tests/**/*.ts",
+    "./tests/**/*.tsx"
   ],
   "exclude": [
     ".env"
