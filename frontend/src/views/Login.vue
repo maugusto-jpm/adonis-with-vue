@@ -4,12 +4,12 @@
       <h2>Login</h2>
 
       <div class="input-box">
-        <input type="text" v-model="user.email" required />
+        <input type="text" class="input-email" v-model="user.email" required />
         <label>Email</label>
       </div>
 
       <div class="input-box">
-        <input type="password" v-model="user.password" required />
+        <input type="password" class="input-password" v-model="user.password" required />
         <label>Password</label>
       </div>
 
@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   data() {
     return {
