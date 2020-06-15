@@ -89,6 +89,14 @@ yarn lint
 yarn lint:fix
 ```
 
+## 🔧 Running frontend tests
+
+Run in bash:
+
+```bash
+yarn frontend test
+```
+
 ## ⛓️ Environment variables
 
 In file `.env` is all the needed environment variables of project. Is recommended to store in it only values used on development or testing.

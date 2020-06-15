@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "webpack --config webpack.config --progress --hide-modules --watch",
     "serve:hotReload": "node ./serve-hotReload",
-    "test:unit": "jest",
+    "test": "jest",
     "build": "NODE_ENV=production webpack --config ./webpack.config --progress"
   },
   "dependencies": {

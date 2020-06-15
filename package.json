@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "concurrently --kill-others 'yarn frontend serve' 'yarn serve'",
-    "test": "echo Jest not configured yet",
     "lint": "eslint './**/*[.ts|.tsx|.js|.vue]'",
     "lint:fix": "yarn lint --fix",
     "build": "yarn frontend build && node ace build",
