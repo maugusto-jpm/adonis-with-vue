@@ -1,6 +1,6 @@
 # ![adonis icon](https://user-images.githubusercontent.com/25934051/82269493-44409680-9948-11ea-864f-26443e69da41.png) AdonisJS with Vue.Js
 
-This is an example of an web application made with [AdonisJS](https://adonisjs.com/) in Typescript with integrated frontend in [Vue.js](https://vuejs.org/).
+This is an example of an web application made with [AdonisJS](https://adonisjs.com/) in Typescript with integrated frontend in [Vue.js](https://vuejs.org/) using [Yarn monorepo](https://classic.yarnpkg.com/en/docs/workspaces).
 It is used [version 5](https://preview.adonisjs.com/) of AdonisJS and [Vue.Js in Typescript](https://vuejs.org/v2/guide/typescript.html#ad).
 
 Provides a [Web API](https://en.wikipedia.org/wiki/Web_API) and a [SPA](https://en.wikipedia.org/wiki/Single-page_application) with autentication.
@@ -19,11 +19,15 @@ It is configured with:
 - [Vuex](https://vuex.vuejs.org/) state management pattern
 - [Vuex Persist](https://github.com/championswimmer/vuex-persist) to local data storage
 
-
 ## 📝 Prerequisite
 
-- [NodeJs](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/)
+- [Docker Compose](https://docs.docker.com/compose) it will provide all required dependencies (via a Node.Js container)
+
+or without Docker:
+
+- [NodeJs](https://nodejs.org)
+- [Yarn](https://yarnpkg.com)
+- [PostgreSQL](https://www.postgresql.org). You can use other database, making some adjustments.
 
 ## 🏁 Getting Started
 
@@ -31,7 +35,26 @@ Run in bash:
 
 ```bash
 # Install dependencies
-yarn install
+yarn install --frozen-lockfile
+
+# Build containers and run it
+docker-compose up -d
+
+# Open container's bash
+docker-compose exec app sh
+
+# Command below is run inside container
+# Create database for development
+PGPASSWORD=postgres psql -U postgres -h postgres -p 5432 postgres -c 'CREATE DATABASE app_development;'
+
+# Create database for testing
+PGPASSWORD=postgres psql -U postgres -h postgres -p 5432 postgres -c 'CREATE DATABASE app_testing;'
+
+# Create databases for development
+yarn backend typeorm migration:run
+
+# Create databases for testing
+yarn backend typeorm:test migration:run
 
 # Starts and keeps running frontend and backend
 yarn start

@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  postgres:
+    image: postgres:10-alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USERNAME: postgres
+    ports:
+      - 5454:5432
+
+  app:
+    build: .
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+    command: "/bin/sh -c 'while true; do sleep 60; done'"
+    volumes:
+      - .:/app
+      - $HOME/.ssh/id_rsa:/root/.ssh/id_rsa:ro
+      - $HOME/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:ro
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
