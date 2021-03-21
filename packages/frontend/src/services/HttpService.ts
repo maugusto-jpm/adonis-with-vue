@@ -11,8 +11,7 @@ const HttpClient = axios.create({
 HttpClient.interceptors.response.use(
   response => response.data,
   error => {
-    console.log('Erro http no axios')
-    console.log(error.response)
+    console.error('Erro http no axios')
     console.log(error.toJSON())
 
     return store.dispatch('loadUser')

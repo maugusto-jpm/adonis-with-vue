@@ -6,12 +6,9 @@ import SignupValidator from 'App/Validators/SignupValidator'
 
 export default class SessionController {
   public async login({ request, response, auth }: HttpContextContract): Promise<void> {
-    console.log('Login');
 
     const userDetails = await request.validate(LoginValidator)
     const user = await auth.attempt(userDetails.email, userDetails.password)
-
-    console.log(user);
 
     response.status(200).send({ user })
   }

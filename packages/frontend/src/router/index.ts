@@ -13,7 +13,6 @@ const authRouteGuard: NavigationGuard = async (to, _from, next) => {
   if (store.getters.isLoggedIn)
     return next()
 
-  console.log(to.path)
   return next({ name: 'Login', query: { redirectTo: to.path } })
 }
 

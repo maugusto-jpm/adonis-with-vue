@@ -9,8 +9,6 @@ export default {
   },
 
   async loadUser({ commit }): Promise<User> {
-    console.log('Pegando usuário')
-
     const user = await loadLoggedUser()
     commit('setUser', user)
 

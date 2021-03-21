@@ -45,21 +45,9 @@ export const csp: ShieldConfig['csp'] = {
   */
   directives: {
     defaultSrc: ["'self'"],
-    fontSrc: [
-      "'self'",
-      'fonts.gstatic.com',
-      'kit-free.fontawesome.com',
-    ],
-    scriptSrc: [
-      "'self'",
-      'kit.fontawesome.com',
-    ],
-    styleSrc: [
-      "'self'",
-      'kit.fontawesome.com',
-      'kit-free.fontawesome.com',
-      'fonts.googleapis.com',
-    ],
+    fontSrc: ["'self'"],
+    scriptSrc: ["'self'"],
+    styleSrc: ["'self'"],
     imgSrc: ["'self'"],
     objectSrc: "'none'",
   },
