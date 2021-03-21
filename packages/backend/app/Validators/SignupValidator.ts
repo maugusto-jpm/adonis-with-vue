@@ -29,9 +29,7 @@ export default class SignupValidator {
       rules.unique({ table: 'users', column: 'email' }),
       rules.maxLength(100),
     ]),
-    password: schema.string({ trim: false }, [
-      rules.confirmed(),
-    ]),
+    password: schema.string({ trim: false }, [rules.confirmed()]),
     // rememberMe: schema.boolean(),
   })
 

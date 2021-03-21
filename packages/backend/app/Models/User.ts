@@ -30,6 +30,6 @@ export default class User extends BaseModel {
   }
 
   public async verifyPassword(password: string): Promise<boolean> {
-    return Hash.verify(this._password, password);
+    return Hash.verify(this._password, password)
   }
 }

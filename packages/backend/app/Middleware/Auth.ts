@@ -12,7 +12,7 @@ export default class AuthMiddleware {
   /**
   * The URL to redirect to when request is Unauthorized
   */
-  protected redirectTo = '/'
+  protected redirectTo = '/login'
 
   /**
    * Authenticates the current HTTP request against a custom set of defined
@@ -22,11 +22,18 @@ export default class AuthMiddleware {
    * of the mentioned guards and that guard will be used by the rest of the code
    * during the current request.
    */
-  protected async authenticate(
-    auth: HttpContextContract['auth'],
-    guards: string[]
-  ): Promise<boolean> {
+  protected async authenticate(auth: HttpContextContract['auth'], guards: any[]): Promise<boolean> {
+    /**
+     * Hold reference to the guard last attempted within the for loop. We pass
+     * the reference of the guard to the "AuthenticationException", so that
+     * it can decide the correct response behavior based upon the guard
+     * driver
+     */
+    let guardLastAttempted: string | undefined
+
     for (const guard of guards) {
+      guardLastAttempted = guard
+
       if (await auth.use(guard).check()) {
         /**
          * Instruct auth to use the given guard as the default guard for
@@ -44,6 +51,7 @@ export default class AuthMiddleware {
     throw new AuthenticationException(
       'Unauthorized access',
       'E_UNAUTHORIZED_ACCESS',
+      guardLastAttempted,
       this.redirectTo,
     )
   }
@@ -52,9 +60,9 @@ export default class AuthMiddleware {
    * Handle request
    */
   public async handle(
-    { auth }: HttpContextContract, next: () => Promise<void>,
-    customGuards: string[]
-  ): Promise<void> {
+    { auth }: HttpContextContract,
+    next: () => Promise<void>,
+    customGuards: string[]): Promise<void> {
     /**
      * Uses the user defined guards or the default guard mentioned in
      * the config file

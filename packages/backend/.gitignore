@@ -1,15 +1,6 @@
-# Dependencies
-/node_modules
-/frontend/node_modules
-
 # Auto generated files
 /resources/views/frontend.edge
 /public/frontend
-
-# Compiled output
-/build
-/tmp
-/.DS_STORE
 
 # SQlite files
 *.sqlite*
@@ -21,6 +12,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+ace-manifest.json
 
 # Git conflit files
 *.orig

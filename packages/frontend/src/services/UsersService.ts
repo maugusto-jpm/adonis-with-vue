@@ -1,6 +1,7 @@
-import Axios from 'axios';
-import { User } from '@/store/state';
+import HttpService from './HttpService'
+import { User } from '@/store/state'
 
-export function loadLoggedUser(): Promise<User> {
-  return Axios.get('api/user').then(({ data }) => data);
+export async function loadLoggedUser(): Promise<User> {
+  const { data } = await HttpService.get('api/user')
+  return data
 }

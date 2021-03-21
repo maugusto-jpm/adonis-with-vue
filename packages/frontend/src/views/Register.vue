@@ -17,7 +17,7 @@
         <input
           type="password"
           class="input-confirmation"
-          v-model="user.password_confirmation"
+          v-model="user.passwordConfirmation"
           required
         />
         <label>Confirmation</label>
@@ -29,24 +29,30 @@
 </template>
 
 <script lang="ts">
-export default {
-  data() {
+import Vue from 'vue'
+
+import HttpService from '@/services/HttpService'
+
+export default Vue.extend({
+  data () {
     return {
       user: {
         email: '',
         password: '',
-        password_confirmation: '',
+        passwordConfirmation: '',
       },
-    };
+    }
   },
   methods: {
-    submitForm() {
-      this.$axios.post('signup', this.user).then(() => {
-        this.$router.push({ name: 'Dashboard' });
-      });
+    submitForm(): void {
+      HttpService.post('signup', this.user)
+        .then(user => this.$store.commit('setUser', user))
+        .then(() => {
+          this.$router.push({ name: 'Dashboard' })
+        })
     },
   },
-};
+})
 </script>
 
 <style lang="scss">

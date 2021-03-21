@@ -34,7 +34,7 @@ Route.group(() => {
   // when users are not logged in
   Route.group(() => {
     Route.post('/login', 'SessionController.login')
-    Route.post('/signup', 'UsersController.signup')
+    Route.post('/signup', 'SessionController.signup')
 
   }).middleware('guest')
 

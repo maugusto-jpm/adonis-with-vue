@@ -15,7 +15,7 @@
 
 import Logger from '@ioc:Adonis/Core/Logger'
 import HttpExceptionHandler from '@ioc:Adonis/Core/HttpExceptionHandler'
-import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class ExceptionHandler extends HttpExceptionHandler {
   constructor() {
@@ -26,8 +26,8 @@ export default class ExceptionHandler extends HttpExceptionHandler {
     switch (error.code) {
     // case 'E_UNAUTHORIZED_ACCESS':
     //   return await UnauthorizedAccessHandler(error, ctx)
-    default:
-      return super.handle(error, ctx)
+      default:
+        return super.handle(error, ctx)
     }
   }
 }

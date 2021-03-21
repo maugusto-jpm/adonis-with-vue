@@ -17,7 +17,9 @@ const bodyParserConfig: BodyParserConfig = {
   | to avoid body parsing for `GET` requests.
   |
   */
-  whitelistedMethods: ['POST', 'PUT', 'PATCH', 'DELETE'],
+  whitelistedMethods: [
+    'POST', 'PUT', 'PATCH', 'DELETE',
+  ],
 
   /*
   |--------------------------------------------------------------------------
@@ -53,9 +55,7 @@ const bodyParserConfig: BodyParserConfig = {
     encoding: 'utf-8',
     limit: '1mb',
     queryString: {},
-    types: [
-      'application/x-www-form-urlencoded',
-    ],
+    types: ['application/x-www-form-urlencoded'],
   },
 
   /*
@@ -72,9 +72,7 @@ const bodyParserConfig: BodyParserConfig = {
     encoding: 'utf-8',
     limit: '1mb',
     queryString: {},
-    types: [
-      'text/*',
-    ],
+    types: ['text/*'],
   },
 
   /*
@@ -177,9 +175,7 @@ const bodyParserConfig: BodyParserConfig = {
     | The types that will be considered and parsed as multipart body.
     |
     */
-    types: [
-      'multipart/form-data',
-    ],
+    types: ['multipart/form-data'],
   },
 }
 

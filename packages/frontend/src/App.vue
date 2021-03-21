@@ -1,30 +1,25 @@
 <template>
   <div id="app">
-    <input type="checkbox" id="menu-checkbox" />
-    <label for="menu-checkbox">
-      <i class="fas fa-bars" id="open-menu"></i>
-      <i class="fas fa-times" id="close-menu"></i>
-    </label>
     <nav class="sidebar">
       <header>AdonisJs with Vue.js</header>
       <ul>
         <li>
-          <router-link :to="{ name: 'Home' }"> <i class="fas fa-qrcode"></i>Home </router-link>
+          <router-link :to="{ name: 'Home' }">Home</router-link>
         </li>
         <li v-if="user">
           <router-link :to="{ name: 'Dashboard' }">
-            <i class="fas fa-sliders-h"></i>Dashboard
+            Dashboard
           </router-link>
         </li>
         <li v-if="!user">
-          <router-link :to="{ name: 'Login' }"> <i class="fas fa-link"></i>Login </router-link>
+          <router-link :to="{ name: 'Login' }">Login</router-link>
         </li>
         <li v-if="user">
-          <a href="/api/logout"> <i class="fas fa-door-open"></i>Logout </a>
+          <button @click="logout">Logout</button>
         </li>
         <li v-if="!user">
           <router-link :to="{ name: 'Register' }">
-            <i class="fas fa-calendar-week"></i>Sign-in
+            Sign-in
           </router-link>
         </li>
       </ul>
@@ -36,12 +31,20 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { mapState } from 'vuex';
+import Vue from 'vue'
+import { mapState } from 'vuex'
+import HttpClient from './services/HttpService'
 
 export default Vue.extend({
   computed: mapState(['user']),
-});
+  methods: {
+    logout: function async (): void {
+      HttpClient.get('/api/logout')
+        .then(() => this.$router.push({ name: 'Home' }).catch(() => {}))
+        .then(() => this.$store.dispatch('logout'))
+    },
+  },
+})
 </script>
 
 <style lang="scss">
@@ -56,7 +59,7 @@ body {
 
 .sidebar {
   position: fixed;
-  left: -260px;
+  left: 0px;
   width: 260px;
   height: 100%;
   background: #042331;
@@ -79,7 +82,7 @@ body {
       list-style: none;
     }
 
-    a {
+    a, button {
       display: block;
       height: 100%;
       width: 100%;
@@ -103,64 +106,12 @@ body {
   }
 }
 
-#menu-checkbox {
-  display: none;
-}
-
-label[for='menu-checkbox'] {
-  #open-menu,
-  #close-menu {
-    position: absolute;
-    background: #042331;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-
-  #open-menu {
-    left: 40px;
-    top: 25px;
-    font-size: 35px;
-    color: white;
-    padding: 6px 12px;
-    transition: all 0.5s;
-  }
-
-  #close-menu {
-    z-index: 1111;
-    left: -210px;
-    top: 17px;
-    font-size: 30px;
-    color: #0a5275;
-    padding: 4px 9px;
-    transition: all 0.5s ease;
-  }
-}
-
-#menu-checkbox:checked ~ .sidebar {
-  left: 0;
-}
-
-#menu-checkbox:checked ~ label[for='menu-checkbox'] {
-  #open-menu {
-    left: 250px;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  #close-menu {
-    left: 210px;
-  }
-}
-
-#menu-checkbox:checked ~ .router-content {
-  margin-left: 260px;
-}
-
 .router-content {
   background: url('./assets/background.jpg') no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
   transition: all 0.5s;
+  margin-left: 260px;
 }
 </style>

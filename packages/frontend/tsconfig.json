@@ -42,5 +42,13 @@
   ],
   "exclude": [
     ".env"
-  ]
+  ],
+  "typeRoots": [
+    "./**/*.d.ts",
+    "../../node_modules/@types",
+    "./node_modules/@types"
+  ],
+  "ts-node": {
+    "transpileOnly": true
+  }
 }

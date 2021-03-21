@@ -1,13 +1,19 @@
-import { ActionTree } from 'vuex';
+import { loadLoggedUser } from '@/services/UsersService'
+import { ActionTree } from 'vuex'
 
-import { StateData, User } from './state';
-import { loadLoggedUser } from '@/services/UsersService';
+import { StateData, User } from './state'
 
 export default {
-  async loadUser({ commit }): Promise<User> {
-    const user = await loadLoggedUser();
-    commit('setUser', user);
-
-    return user;
+  logout({ commit }): void {
+    commit('setUser', null)
   },
-} as ActionTree<StateData, StateData>;
+
+  async loadUser({ commit }): Promise<User> {
+    console.log('Pegando usuário')
+
+    const user = await loadLoggedUser()
+    commit('setUser', user)
+
+    return user
+  },
+} as ActionTree<StateData, StateData>

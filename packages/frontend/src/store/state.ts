@@ -1,11 +1,11 @@
 export interface User {
-  email: string | null;
+  email: string
 }
 
 export type StateData = {
-  user: null | User;
+  user: null | User
 };
 
 export default {
   user: null,
-} as StateData;
+} as StateData
