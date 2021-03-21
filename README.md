@@ -29,7 +29,7 @@ or without Docker:
 - [Yarn](https://yarnpkg.com)
 - [PostgreSQL](https://www.postgresql.org). You can use other database, making some adjustments.
 
-## 🏁 Getting Started
+## :checkered_flag: Getting Started (with Docker)
 
 Run in bash:
 
@@ -47,46 +47,33 @@ docker-compose exec app sh
 # Create database for development
 PGPASSWORD=postgres psql -U postgres -h postgres -p 5432 postgres -c 'CREATE DATABASE app_development;'
 
-# Create database for testing
-PGPASSWORD=postgres psql -U postgres -h postgres -p 5432 postgres -c 'CREATE DATABASE app_testing;'
-
 # Create databases for development
-yarn backend typeorm migration:run
-
-# Create databases for testing
-yarn backend typeorm:test migration:run
+yarn backend node ace migration:run
 
 # Starts and keeps running frontend and backend
 yarn start
 ```
 
-Open another terminal on same folder an run
+After that server will be running on `localhost:5555`
+
+## :checkered_flag: Getting Started (without Docker)
+
+In this case, you must provide a database.
+Run in bash:
 
 ```bash
-# Create SQLite database and run migrations
-yarn db:migrate
+# Install dependencies
+yarn install --frozen-lockfile
+
+# Create databases for development
+yarn backend node ace migration:run
+
+# Keeps running and watching for changes
+yarn start
 ```
 
-## Dependencies
+After that server will be running on `localhost:3333`
 
-Frontend and backend do not share dependencies to prevent a production package bigger than necessary.
-To install dependencies on backend run
-
-```bash
-yarn add <package-name>
-
-# or
-yarn add -D <package-name>
-```
-
-To install dependencies on frontend run
-
-```bash
-yarn frontend add <package-name>
-
-# or
-yarn frontend add -D <package-name>
-```
 
 ## 🔧 Running frontend hot reload
 
@@ -95,7 +82,7 @@ yarn frontend add -D <package-name>
 Run in bash:
 
 ```bash
-yarn frontend serve:hotReload
+yarn frontend start
 ```
 
 ## 🎈 Running coding style linting
@@ -112,12 +99,12 @@ yarn lint
 yarn lint:fix
 ```
 
-## 🔧 Running frontend tests
+## 🔧 Running tests
 
 Run in bash:
 
 ```bash
-yarn frontend test
+yarn test
 ```
 
 ## ⛓️ Environment variables

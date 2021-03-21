@@ -1,12 +1,14 @@
 {
-  "name": "frontend",
+  "name": "@adonis-with-vue/frontend",
+  "author": "Marcelo Nascimento <maugusto.jpm@gmail.com>",
   "version": "1.0.0",
+  "license": "MIT",
   "private": true,
   "scripts": {
-    "serve": "webpack --config webpack.config --progress --hide-modules --watch",
-    "serve:hotReload": "node ./serve-hotReload",
-    "test": "jest",
-    "build": "NODE_ENV=production webpack --config ./webpack.config --progress"
+    "serve": "webpack --config ./scripts/webpack.config --progress --hide-modules --watch",
+    "start": "node ./scripts/start",
+    "build": "webpack --config ./scripts/webpack.config --progress",
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -19,6 +21,7 @@
     "vuex-persist": "^2.2.0"
   },
   "devDependencies": {
+    "@types/dotenv-webpack": "^7.0.0",
     "@types/jest": "^25.2.3",
     "@vue/cli-plugin-babel": "~4.3.0",
     "@vue/cli-plugin-eslint": "^4.4.1",
@@ -26,17 +29,20 @@
     "@vue/cli-plugin-typescript": "~4.3.0",
     "@vue/cli-plugin-vuex": "~4.3.0",
     "@vue/cli-service": "~4.3.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/test-utils": "^1.0.3",
     "axios-mock-adapter": "^1.18.1",
     "babel-core": "^6.26.3",
     "babel-jest": "^26.0.1",
     "dotenv-webpack": "^1.8.0",
     "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.7.0",
     "jest": "^26.0.1",
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "ts-jest": "^26.1.0",
+    "ts-node": "^9.1.1",
     "typescript": "~3.8.3",
     "vue-jest": "^3.0.5",
     "vue-template-compiler": "^2.6.11",

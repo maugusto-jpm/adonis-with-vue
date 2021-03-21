@@ -14,6 +14,7 @@ services:
     environment:
       DB_HOST: postgres
       DB_PORT: 5432
+      PORT: 5555
     command: "/bin/sh -c 'while true; do sleep 60; done'"
     volumes:
       - .:/app

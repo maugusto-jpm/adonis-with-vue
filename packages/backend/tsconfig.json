@@ -1,40 +1,37 @@
 {
-  "references": [
-    { "path": "./frontend" }
-  ],
   "include": [
     "**/*"
   ],
   "exclude": [
-    "node_modules",
-    "build",
-    ".env",
-    "tmp",
-    "frontend"
+    "node_modules"
   ],
-  "extends": "./node_modules/adonis-preset-ts/tsconfig",
+  "extends": "../../node_modules/adonis-preset-ts/tsconfig",
   "compilerOptions": {
-    "lib": ["ES2019"],
-    "module": "commonjs",
-    "target": "ES2019",
-    "outDir": "build",
+    "outDir": "../../build",
     "rootDir": "./",
     "sourceMap": true,
     "paths": {
       "App/*": [
-        "./app/*"
+        "packages/backend/app/*"
+      ],
+      "Config/*": [
+        "packages/backend/config/*"
       ],
       "Contracts/*": [
-        "./contracts/*"
+        "packages/backend/contracts/*"
+      ],
+      "Database/*": [
+        "packages/backend/database/*"
       ]
     },
     "types": [
       "@adonisjs/core",
-      "@adonisjs/lucid",
-      "@adonisjs/auth",
       "@adonisjs/session",
       "@adonisjs/view",
-      "@adonisjs/shield"
+      "@adonisjs/lucid",
+      "@adonisjs/shield",
+      "@adonisjs/repl",
+      "@adonisjs/auth"
     ]
   }
 }

@@ -44,9 +44,7 @@ export const csp: ShieldConfig['csp'] = {
   |
   */
   directives: {
-    defaultSrc: [
-      "'self'",
-    ],
+    defaultSrc: ["'self'"],
     fontSrc: [
       "'self'",
       'fonts.gstatic.com',
@@ -54,7 +52,7 @@ export const csp: ShieldConfig['csp'] = {
     ],
     scriptSrc: [
       "'self'",
-      "kit.fontawesome.com"
+      'kit.fontawesome.com',
     ],
     styleSrc: [
       "'self'",
@@ -62,22 +60,9 @@ export const csp: ShieldConfig['csp'] = {
       'kit-free.fontawesome.com',
       'fonts.googleapis.com',
     ],
-    imgSrc: [
-      "'self'",
-    ],
+    imgSrc: ["'self'"],
+    objectSrc: "'none'",
   },
-
-  /*
-  |--------------------------------------------------------------------------
-  | Loose Mode
-  |--------------------------------------------------------------------------
-  |
-  | This module will detect common mistakes in your directives and throw
-  | errors if it finds any. To disable this, set the following following
-  | to `true`.
-  |
-  */
-  loose: false,
 
   /*
   |--------------------------------------------------------------------------
@@ -89,33 +74,6 @@ export const csp: ShieldConfig['csp'] = {
   |
   */
   reportOnly: false,
-
-  /*
-  |--------------------------------------------------------------------------
-  | Set all headers
-  |--------------------------------------------------------------------------
-  |
-  | Headers staring with `X` have been depreciated, since all major browsers
-  | supports the standard CSP header. So its better to disable deperciated
-  | headers, unless you want them to be set.
-  |
-  */
-  setAllHeaders: false,
-
-  /*
-  |--------------------------------------------------------------------------
-  | Disable on android
-  |--------------------------------------------------------------------------
-  |
-  | Certain versions of android are buggy with CSP policy. So you can set
-  | this value to true, to disable it for Android versions with buggy
-  | behavior.
-  |
-  | Here is an issue reported on a different package, but helpful to read
-  | if you want to know the behavior. https://github.com/helmetjs/helmet/pull/82
-  |
-  */
-  disableAndroid: false,
 }
 
 /*
@@ -173,7 +131,9 @@ export const csrf: ShieldConfig['csrf'] = {
   | Define an array of HTTP methods to be validated for a valid CSRF token.
   |
   */
-  methods: ['POST', 'PUT', 'PATCH', 'DELETE'],
+  methods: [
+    'POST', 'PUT', 'PATCH', 'DELETE',
+  ],
 }
 
 /*

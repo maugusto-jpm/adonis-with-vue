@@ -19,26 +19,36 @@
 </template>
 
 <script lang="ts">
-export default {
-  data() {
+import Vue from 'vue'
+
+import HttpService from '@/services/HttpService'
+
+export default Vue.extend({
+  data () {
     return {
       user: {
         email: '',
         password: '',
       },
-    };
+    }
   },
   methods: {
-    submitForm() {
-      this.$axios
+    submitForm(): void {
+      HttpService
         .post('login', this.user)
-        .then(() => this.$store.dispatch('loadUser'))
-        .then(() => {
-          this.$router.push({ name: 'Dashboard' });
-        });
+        .then(user => {
+          this.$store.commit('setUser', user)
+          const redirectToUrl = this.$route.query.redirectTo
+
+          if (redirectToUrl)
+            this.$router.push({ path: redirectToUrl as string })
+
+          else
+            this.$router.push({ name: 'Dashboard' })
+        })
     },
   },
-};
+})
 </script>
 
 <style lang="scss">

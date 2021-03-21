@@ -24,7 +24,7 @@ const sessionConfig: SessionConfig = {
   | Note: Switching drivers will make existing sessions invalid.
   |
   */
-  driver: Env.get('SESSION_DRIVER', 'cookie') as string,
+  driver: Env.get('SESSION_DRIVER'),
 
   /*
   |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ const sessionConfig: SessionConfig = {
   | The name of the cookie that will hold the session id.
   |
   */
-  cookieName: 'adonis-session',
+  cookieName: Env.get('COOKIE_NAME', 'adonis-session'),
 
   /*
   |--------------------------------------------------------------------------

@@ -1,0 +1,31 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+*.log*
+
+# ESLint cache
+.eslintcache
+
+# Compiled output
+/build
+
+# Testing coverage report
+coverage/
+
+# Git conflit files
+*.orig
+*~
+
+# IDEs and editors settings
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json

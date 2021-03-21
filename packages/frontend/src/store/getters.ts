@@ -1,8 +1,8 @@
-import { GetterTree } from 'vuex';
+import { GetterTree } from 'vuex'
 
-import { StateData } from './state';
+import { StateData } from './state'
 
 export default {
   user: state => state.user,
   isLoggedIn: state => !!state.user,
-} as GetterTree<StateData, StateData>;
+} as GetterTree<StateData, StateData>

@@ -7,12 +7,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { mapState } from 'vuex';
+import Vue from 'vue'
+import { mapState } from 'vuex'
 
 export default Vue.extend({
   computed: mapState(['user']),
-});
+})
 </script>
 
 <style lang="scss">
