@@ -16,7 +16,7 @@
     "@adonisjs/session": "^4.0.6",
     "@adonisjs/shield": "^4.0.3",
     "@adonisjs/view": "^3.0.0",
-    "luxon": "^1.25.0",
+    "luxon": "^2.5.2",
     "pg": "^8.4.1",
     "phc-bcrypt": "^1.0.5",
     "proxy-addr": "^2.0.6",

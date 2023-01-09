@@ -5675,9 +5675,11 @@ fast-safe-stringify@^2.0.7:
   integrity sha512-Utm6CdzT+6xsDk2m8S6uL8VHxNwI6Jub+e9NYTcAms28T84pTa25GJQV9j0CY0N1rM8hK4x6grpF2BQf+2qwVA==
 
 fast-xml-parser@^3.19.0:
-  version "3.19.0"
-  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-3.19.0.tgz#cb637ec3f3999f51406dd8ff0e6fc4d83e520d01"
-  integrity sha512-4pXwmBplsCPv8FOY1WRakF970TjNGnGnfbOnLqjlYvMiF1SR3yOHyxMR/YCXpPTOspNF5gwudqktIP4VsWkvBg==
+  version "3.21.1"
+  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-3.21.1.tgz#152a1d51d445380f7046b304672dd55d15c9e736"
+  integrity sha512-FTFVjYoBOZTJekiUsawGsSYV9QL0A+zDYCRj7y34IO6Jg+2IMYEtQa+bbictpdpV8dHxXywqU7C0gRDEOFtBFg==
+  dependencies:
+    strnum "^1.0.4"
 
 fastq@^1.6.0:
   version "1.11.0"
@@ -6456,9 +6458,9 @@ hex-color-regex@^1.1.0:
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
 highlight.js@^10.0.0, highlight.js@^10.4.1:
-  version "10.7.0"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.7.0.tgz#2b4232f45f000a72ae6ef05fe83b831d75add6cb"
-  integrity sha512-2omq9bKvr0BkwZRLhyjoDd1muuuMsacFY2qoIt/Eu8JoZyJaGm8oQKviiOC/QbJqEeZp9c0BikDr0Jz4kWd8Ag==
+  version "10.7.3"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.7.3.tgz#697272e3991356e40c3cac566a74eef681756531"
+  integrity sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==
 
 hmac-drbg@^1.0.1:
   version "1.0.1"
@@ -7220,9 +7222,9 @@ is-string@^1.0.5:
   integrity sha512-buY6VNRjhQMiF1qWDouloZlQbRhDPCebwxSjxMjxgemYT46YMd2NR0/H+fBhEfWX4A/w9TBJ+ol+okqJKFE6vQ==
 
 is-svg@^3.0.0, is-svg@^4.2.2:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/is-svg/-/is-svg-4.3.1.tgz#8c63ec8c67c8c7f0a8de0a71c8c7d58eccf4406b"
-  integrity sha512-h2CGs+yPUyvkgTJQS9cJzo9lYK06WgRiXUqBBHtglSzVKAuH4/oWsqk7LGfbSa1hGk9QcZ0SyQtVggvBA8LZXA==
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/is-svg/-/is-svg-4.3.2.tgz#a119e9932e1af53f6be1969d1790d6cc5fd947d3"
+  integrity sha512-mM90duy00JGMyjqIVHu9gNTjywdZV+8qNasX8cm/EEYZ53PHDgajvbBwNVvty5dwSAxLUD3p3bdo+7sR/UMrpw==
   dependencies:
     fast-xml-parser "^3.19.0"
 
@@ -8262,6 +8264,11 @@ luxon@^1.25.0:
   version "1.26.0"
   resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.26.0.tgz#d3692361fda51473948252061d0f8561df02b578"
   integrity sha512-+V5QIQ5f6CDXQpWNICELwjwuHdqeJM1UenlZWx5ujcRMc9venvluCjFb4t5NYLhb6IhkbMVOxzVuOqkgMxee2A==
+
+luxon@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-2.5.2.tgz#17ed497f0277e72d58a4756d6a9abee4681457b6"
+  integrity sha512-Yg7/RDp4nedqmLgyH0LwgGRvMEKVzKbUdkBYyCosbHgJ+kaOUx0qzSiSatVc3DFygnirTPYnMM2P5dg2uH1WvA==
 
 macroable@^5.0.3:
   version "5.1.0"
@@ -11706,6 +11713,11 @@ strip-json-comments@^3.0.1, strip-json-comments@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
+
+strnum@^1.0.4:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/strnum/-/strnum-1.0.5.tgz#5c4e829fe15ad4ff0d20c3db5ac97b73c9b072db"
+  integrity sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==
 
 strtok3@^6.0.3:
   version "6.0.8"
